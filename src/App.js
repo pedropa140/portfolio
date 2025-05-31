@@ -20,6 +20,7 @@ function App() {
       <Projects />
       <Hackathon />
       <Contact />
+      
     </div>
   );
 }
