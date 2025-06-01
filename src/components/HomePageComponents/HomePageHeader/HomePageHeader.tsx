@@ -18,9 +18,10 @@ const images: string[] = [
     './components/HomePageHeader/headerphoto_15.JPG',
     './components/HomePageHeader/headerphoto_16.JPG',
     './components/HomePageHeader/headerphoto_17.JPG',
+    './components/HomePageHeader/headerphoto_18.JPG',
 ];
 
-const Header: React.FC = () => {
+const HomePageHeader = () => {
     const [currentImage, setCurrentImage] = useState<number>(0);
 
     useEffect(() => {
@@ -66,4 +67,4 @@ const Header: React.FC = () => {
     );
 };
 
-export default Header;
+export default HomePageHeader;
