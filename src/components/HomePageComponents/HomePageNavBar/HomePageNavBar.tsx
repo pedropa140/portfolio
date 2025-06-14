@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
 
 function HomePageNavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,21 +15,16 @@ function HomePageNavBar() {
 
     const handleNavClick = (id: string, onClickExtra = () => { }) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        setIsMenuOpen(false);
         onClickExtra();
+        setMenuOpen(false);
     };
 
     const renderNavLink = (label: string, id?: string, isScrolled?: boolean, onClickExtra = () => { }, url?: string) => {
+        const baseClass = `block p-4 text-2xl lg:text-base text-left hover:text-[#E28111] ${isScrolled ? "text-[#f09a36]" : "text-white"} bg-transparent border-none cursor-pointer font-inherit w-full lg:w-auto font-bold`;
+
         if (url) {
             return (
-                <a
-                    key={label}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`block p-3 text-left md:p-[15px] md:inline hover:text-[#f09a36] ${isScrolled ? "text-[#f0c936]" : "text-white"
-                        } bg-transparent border-none cursor-pointer font-inherit w-full md:w-auto`}
-                >
+                <a key={label} href={url} target="_blank" rel="noopener noreferrer" className={baseClass} onClick={() => setMenuOpen(false)}>
                     {label}
                 </a>
             );
@@ -43,62 +37,63 @@ function HomePageNavBar() {
                     e.preventDefault();
                     if (id) handleNavClick(id, onClickExtra);
                 }}
-                className={`block p-3 text-left md:p-[15px] md:inline hover:text-[#f09a36] ${isScrolled ? "text-[#f0c936]" : "text-white"
-                    } bg-transparent border-none cursor-pointer font-inherit w-full md:w-auto`}
+                className={baseClass}
             >
                 {label}
             </button>
         );
     };
 
-
     const navItems = [
         { label: "ABOUT", id: "about" },
-        { label: "EDUCATION", id: "education" },
         { label: "EXPERIENCE", id: "experience" },
+        { label: "EDUCATION", id: "education" },
         { label: "HACKATHONS", id: "hackathons" },
         { label: "PROJECTS", id: "projects" },
-        { label: "RESUME", url: "https://example.com/your-resume.pdf" },
+        { label: "RESUME", url: "https://drive.google.com/file/d/1cwA9iiWqxWABMaxAzDFZbiTzsI9QLB7p/view?usp=sharing" },
         { label: "CONTACT", id: "contact" },
     ];
 
-
     return (
-        <div
-            className={`fixed flex flex-col md:flex-row top-0 left-0 z-50 w-full transition-all duration-300 items-start md:items-center justify-between ${isScrolled ? "p-2 mt-3" : "p-5"
-                } ${isScrolled ? "bg-black bg-opacity-70" : "bg-transparent"}`}
-        >
-            <div className="flex w-full justify-between items-center">
-                <button
-                    onClick={(e) => {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                        setIsMenuOpen(false);
-                    }}
-                    className="bg-transparent border-none cursor-pointer"
-                >
-                    <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300">
-                        PEDRO PAJARILLO JR.
-                    </h1>
-
-                </button>
-
-                <button
-                    className="md:hidden text-white"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle Menu"
-                >
-                    {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
-            </div>
-
-            <div
-                className={`${isMenuOpen ? "flex" : "hidden"
-                    } md:flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mt-4 md:mt-0 w-full md:w-auto bg-black md:bg-transparent bg-opacity-90 md:bg-opacity-0 px-4 py-4 md:p-0 rounded-lg shadow-lg md:shadow-none transition-all duration-300 ease-in-out font-bold`}
+        <div className={`fixed z-[100] flex items-center justify-between transition-all ease-in-out w-full 
+            ${isScrolled ? "bg-[#f4f4f9] p-2 w-[95%] ml-[2.5%] mr-[2.5%]" : "bg-transparent p-5"}
+        `}>
+            <button
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    setMenuOpen(false);
+                }}
+                className="bg-transparent border-none cursor-pointer"
             >
-                {navItems.map(({ label, id, url }) => renderNavLink(label, id, isScrolled, undefined, url))}
+                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300 whitespace-nowrap">
+                    PEDRO PAJARILLO JR.
+                </h1>
+            </button>
+
+            <div className="hidden xl:flex font-bold">
+                {navItems.map(({ label, id, url }) =>
+                    renderNavLink(label, id, isScrolled, undefined, url)
+                )}
             </div>
 
+            <button
+                className="xl:hidden z-[101] relative w-8 h-8 flex items-center justify-center bg-transparent border-none focus:outline-none"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+            >
+                <span className={`absolute w-8 h-1 ${isScrolled ? "bg-[#f09a36]" : "bg-white"} rounded-sm transition-transform duration-300 ease-in-out ${menuOpen ? "rotate-45" : "-translate-y-2"}`}/>
+                <span className={`absolute w-8 h-1 ${isScrolled ? "bg-[#f09a36]" : "bg-white"} rounded-sm transition-opacity duration-300 ease-in-out ${menuOpen ? "opacity-0" : "opacity-100"}`}/>
+                <span className={`absolute w-8 h-1 ${isScrolled ? "bg-[#f09a36]" : "bg-white"} rounded-sm transition-transform duration-300 ease-in-out ${menuOpen ? "-rotate-45" : "translate-y-2"}`}/>
+            </button>
+
+            {menuOpen && (
+                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl fixed top-0 left-0 w-full h-screen bg-black bg-opacity-95 flex flex-col items-center justify-center z-[100] space-y-6 transition-opacity duration-300">
+                    {navItems.map(({ label, id, url }) =>
+                        renderNavLink(label, id, true, undefined, url)
+                    )}
+                </div>
+            )}
         </div>
     );
 }
