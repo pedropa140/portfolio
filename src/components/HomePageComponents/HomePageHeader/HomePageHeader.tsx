@@ -33,7 +33,7 @@ const HomePageHeader = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-screen flex items-center justify-center bg-[#282c34] text-white overflow-hidden shadow-xl">
+        <div className="relative w-full h-screen flex items-center justify-center bg-black bg-opacity-4 text-white overflow-hidden shadow-xl">
             <div className="absolute inset-0 w-full h-full">
                 {images.map((image, index) => (
                     <img
@@ -50,7 +50,7 @@ const HomePageHeader = () => {
                     Hi, I'm <span className="text-[#f09a36]">PEDRO PAJARILLO JR.</span>
                 </h1>
                 <h3 className="mt-4x1 text-sm md:text-base lg:text-lg font-semibold text-[#f09a36] drop-shadow-md">
-                    Software Developer | Full-Stack Developer | Coder | 5x Hackathon Winner
+                    Software Developer • Full-Stack Developer | Coder | 5x Hackathon Winner
                 </h3>
             </div>
         </div>
