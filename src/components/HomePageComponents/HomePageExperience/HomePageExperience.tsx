@@ -13,6 +13,7 @@ const HomePageExperience = () => {
                     to help students solidify their understanding of lecture topics. Collaborated with the lead professor to design and implement new assignments that aligned with curriculum objectives and promoted deep understanding.
                 </>
             ),
+            skills: ["Java", "Python", "Leadership", "Organization", "Communication", "Teaching", "Data Structures"]
         },
         {
             role: "Head iLab Assistant / Computer Science Student Manager",
@@ -31,6 +32,7 @@ const HomePageExperience = () => {
                     for quick resolution and minimal impact.
                 </>
             ),
+            skills: ["Python", "Leadership", "Organization", "Communication", "Teaching", "Data Structures"]
         },
         {
             role: "Teaching Assistant",
@@ -45,6 +47,7 @@ const HomePageExperience = () => {
                     to assist student understanding of lecture topics.
                 </>
             ),
+            skills: ["Python", "Organization", "Communication", "Teaching"]
         },
         {
             role: "iLab Assistant / Computer Science Tutor",
@@ -61,6 +64,7 @@ const HomePageExperience = () => {
                     and helped foster a collaborative learning space.
                 </>
             ),
+            skills: ["Java", "Python", "Organization", "Communication", "Teaching", "Data Structures"]
         }
     ];
 
@@ -95,6 +99,18 @@ const HomePageExperience = () => {
                                     </h3>
                                     <p className="text-sm text-gray-500 dark:text-gray-400">{exp.date}</p>
                                     <p className="mt-2 text-gray-600 dark:text-gray-200">{exp.description}</p>
+
+                                    {/* Skills */}
+                                    <div className="mt-4 flex flex-wrap gap-2">
+                                        {exp.skills?.map((skill, i) => (
+                                            <span
+                                                key={i}
+                                                className="bg-[#f09a36]/20 text-[#f09a36] text-xs font-semibold px-3 py-1 rounded-full"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         );

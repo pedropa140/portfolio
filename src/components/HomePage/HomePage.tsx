@@ -8,9 +8,12 @@ import HomePageHackathons from "../HomePageComponents/HomePageHackathons/HomePag
 import HomePageProjects from "../HomePageComponents/HomePageProjects/HomePageProjects.tsx";
 import HomePageContact from "../HomePageComponents/HomePageContact/HomePageContact.tsx";
 
-import DarkMode from "../HomePageUTILs/DarkMode.tsx";
+import DarkMode from "../UTILS/DarkMode.tsx";
+import useTitleTag from "../UTILS/useTitleTag.tsx";
 
 function HomePage() {
+
+  useTitleTag("Portfolio | ");
 
   return (
     <div className="relative bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">

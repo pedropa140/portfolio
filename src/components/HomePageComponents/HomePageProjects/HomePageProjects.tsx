@@ -25,25 +25,25 @@ const projects: Project[] = [
     },
     {
         title: "FaceDigitClassification",
-        description: "",
+        description: "This project involves implementing and testing Naive Bayes, Perceptron, and a custom classifier on digit and face image datasets to perform optical character recognition and simplified face detection.",
         fullDescription:
             "This project is based on the one created by Dan Klein and John DeNero that was given as part of the programming assignments of Berkeley’s CS188 course. In this project, you will design three classifiers: a naive Bayes classifier, a perceptron classifier and a classifier of your choice. You will test your classifiers on two image data sets: a set of scanned handwritten digit images and a set of face images in which edges have already been detected. Even with simple features, your classifiers will be able to do quite well on these tasks when given enough training data. Optical character recognition (OCR) is the task of extracting text from image sources. The first data set on which you will run your classifiers is a collection of handwritten numerical digits (0-9). This is a very commercially useful technology, similar to the technique used by the US post office to route mail by zip codes. There are systems that can perform with over 99% classification accuracy (see LeNet-5 for an example system in action). Face detection is the task of localizing faces within video or still images. The faces can be at any location and vary in size. There are many applications for face detection, including human computer interaction and surveillance. You will attempt a simplified face detection task in which your system is presented with an image that has been pre-processed by an edge detection algorithm. The task is to determine whether the edge image is a face or not. Please refer to http://inst.eecs.berkeley.edu/~cs188/sp11/projects/classification/classification.html for a brief description of the Perceptron and Naive Bayes classifiers.",
-        imageUrl: "",
+        imageUrl: "./components/HomePageProjects/facedigitclassification.png",
         liveLink: "",
         githubLink: "https://github.com/pedropa140/FaceDigitClassification",
         dateMade: "May 2023",
         technologies: ["Python"]
     },
     {
-        title: "",
-        description: "",
+        title: "Shell.C",
+        description: "This assignment involves creating a basic Unix shell in C that supports command execution, job control, signal handling, and built-in shell commands.",
         fullDescription:
-            "",
-        imageUrl: "",
+            "This assignment requires implementing a Unix-like command-line shell in C that supports process creation, signal handling, job control, and built-in shell commands. The shell should display a prompt, accept and parse user input, and execute commands either in the foreground or background. It must handle absolute and relative paths, search standard binary directories for unqualified commands, and provide appropriate error messages when commands fail. Key features include background job management with job IDs, signal handling for SIGINT (Ctrl-C) and SIGTSTP (Ctrl-Z), zombie process reaping, and support for built-in commands such as cd, exit, jobs, fg, bg, and kill. The shell should maintain job states (running, stopped, terminated), print job status, and respond correctly to system signals without terminating itself. Upon exiting, the shell should properly clean up and send appropriate signals to any active or suspended jobs. The project should include a Makefile for building the shell and a README listing team members.",
+        imageUrl: "./components/HomePageProjects/shell.png",
         liveLink: "",
         githubLink: "",
-        dateMade: "",
-        technologies: [""]
+        dateMade: "November 2022",
+        technologies: ["C Programming Language", "Linux/Unix"]
     }
 ];
 

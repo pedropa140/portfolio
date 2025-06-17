@@ -27,7 +27,7 @@ function HomePageNavBar() {
         url?: string
     ) => {
         const baseClass = `
-            block p-4 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit
+            block p-3 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit
             ${isScrolled ? "text-[#f09a36] hover:text-[#E28111]" : "text-white hover:text-[#E28111]"}
         `;
 
@@ -66,7 +66,11 @@ function HomePageNavBar() {
         { label: "EDUCATION", id: "education" },
         { label: "CERTIFICATIONS", id: "certifications" },
         { label: "HACKATHONS", id: "hackathons" },
-        { label: "PROJECTS", id: "projects" },
+        { label: "PROJECTS", id: "projects" },        
+        {
+            label: "BLOG",
+            url: "/blog",
+        },
         {
             label: "RESUME",
             url: "https://drive.google.com/file/d/1cwA9iiWqxWABMaxAzDFZbiTzsI9QLB7p/view?usp=sharing",
@@ -91,7 +95,7 @@ function HomePageNavBar() {
                 }}
                 className="bg-transparent border-none cursor-pointer"
             >
-                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300 whitespace-nowrap">
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300 whitespace-nowrap">
                     PEDRO PAJARILLO JR.
                 </h1>
             </button>

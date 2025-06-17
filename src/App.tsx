@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './components/HomePage/HomePage.tsx';
+import BlogPage from './components/BlogPage/BlogPage.tsx';
 
 function App() {
   return (<Router>
@@ -11,6 +12,12 @@ function App() {
             path="/"
             element={
               <HomePage />
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <BlogPage />
             }
           />
         </Routes>
