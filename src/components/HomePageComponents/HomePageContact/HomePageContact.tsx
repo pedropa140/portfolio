@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaDev, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const HomePageContact = () => {
     const scrollToSection = (id: string) => {
@@ -19,8 +19,17 @@ const HomePageContact = () => {
                         aria-label="Devpost"
                         className="hover:text-[#f09a36] transition"
                     >
-                        <FaDev />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-7 h-7"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M11.54 8.79h-1.12v6.42h1.05A2.91 2.91 0 0 0 14.69 12c0-2.15-.92-3.21-3.15-3.21"></path>
+                            <path d="M7 3.37 2 12l5 8.63h10L22 12l-5-8.63zm4.47 13.91H8.35V6.72h3.27c3 0 5.23 1.43 5.23 5.28 0 3.7-2.68 5.28-5.38 5.28"></path>
+                        </svg>
                     </a>
+
                     <a
                         href="https://www.linkedin.com/in/pedro-pajarillo-jr/"
                         target="_blank"
@@ -28,15 +37,17 @@ const HomePageContact = () => {
                         aria-label="LinkedIn"
                         className="hover:text-[#f09a36] transition"
                     >
-                        <FaLinkedin />
+                        <FaLinkedin className="w-7 h-7" />
                     </a>
+
                     <a
                         href="mailto:pedropa140@gmail.com"
                         aria-label="Email"
                         className="hover:text-[#f09a36] transition"
                     >
-                        <FaEnvelope />
+                        <FaEnvelope className="w-7 h-7" />
                     </a>
+
                     <a
                         href="https://github.com/pedropa140"
                         target="_blank"
@@ -44,12 +55,12 @@ const HomePageContact = () => {
                         aria-label="GitHub"
                         className="hover:text-[#f09a36] transition"
                     >
-                        <FaGithub />
+                        <FaGithub className="w-7 h-7" />
                     </a>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-                    {["about", "experience", "education", "certifications", "hackathons", "projects", "contact"].map((section) => (
+                    {["about", "experience", "education", "certifications", "hackathons", "projects"].map((section) => (
                         <button
                             key={section}
                             onClick={() => scrollToSection(section)}
@@ -58,6 +69,22 @@ const HomePageContact = () => {
                             {section.charAt(0).toUpperCase() + section.slice(1)}
                         </button>
                     ))}
+
+                    <a
+                        href="/blog"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[#f09a36] transition"
+                    >
+                        Blog
+                    </a>
+
+                    <button
+                        onClick={() => scrollToSection("contact")}
+                        className="hover:text-[#f09a36] transition"
+                    >
+                        Contact
+                    </button>
                 </div>
 
                 <div className="mt-6">

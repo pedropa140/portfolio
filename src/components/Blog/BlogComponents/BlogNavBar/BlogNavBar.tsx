@@ -1,8 +1,24 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
+const navItems: { label: string; url?: string; id?: string; newPage?: boolean; }[] = [
+    {
+        label: "ABOUT",
+        url: "/blog/about",
+        newPage: false,
+    },
+    {
+        label: "ARTICLES",
+        url: "/blog/articles",
+        newPage: false,
+    }
+];
 
 function HomePageNavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,7 +35,7 @@ function HomePageNavBar() {
         setMenuOpen(false);
     };
 
-    const renderNavLink = ( label: string, id?: string, isScrolled?: boolean, onClickExtra = () => { }, url?: string ) => {
+    const renderNavLink = (label: string, id?: string, isScrolled?: boolean, onClickExtra = () => { }, url?: string, newPage?: boolean,) => {
         const baseClass = `
             block p-3 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit
             ${isScrolled ? "text-[#f09a36] hover:text-[#E28111]" : "text-white hover:text-[#E28111]"}
@@ -27,16 +43,26 @@ function HomePageNavBar() {
 
         if (url) {
             return (
-                <a
+                <button
                     key={label}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    rel={newPage ? "noopener noreferrer" : ""}
                     className={baseClass}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => {
+                        if (location.pathname === url) {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                            setMenuOpen(false);
+                            navigate(url);
+                        }
+                        else {
+                            setMenuOpen(false);
+                            window.scrollTo({ top: 0, behavior: "auto" });
+                            navigate(url);
+                        }
+                    }}
                 >
                     {label}
-                </a>
+                </button>
             );
         }
 
@@ -54,50 +80,49 @@ function HomePageNavBar() {
         );
     };
 
-    const navItems = [
-        { label: "ABOUT", id: "about" },
-        { label: "EXPERIENCE", id: "experience" },
-        { label: "EDUCATION", id: "education" },
-        { label: "CERTIFICATIONS", id: "certifications" },
-        { label: "HACKATHONS", id: "hackathons" },
-        { label: "PROJECTS", id: "projects" },        
-        {
-            label: "BLOG",
-            url: "/blog",
-        },
-        {
-            label: "RESUME",
-            url: "https://drive.google.com/file/d/1cwA9iiWqxWABMaxAzDFZbiTzsI9QLB7p/view?usp=sharing",
-        },
-        { label: "CONTACT", id: "contact" },
-    ];
-
     return (
         <div
-            className={`fixed z-[100] flex items-center justify-between transition-all ease-in-out
+            className={`fixed z-[100] flex items-center justify-between transition-all duration-300  ease-in-out
                 ${isScrolled
                     ? "bg-[#f4f4f9] dark:bg-[#111827] pb-2 pl-5 pr-5 w-[95%] ml-[2.5%] mr-[2.5%]"
-                    : "bg-transparent p-5 w-full"
+                    : `${location.pathname === '/blog' ? "bg-transparent" : "bg-[#1f1f1f] dark:bg-[#111827]"} p-5 w-full`
                 }
             `}
         >
             <button
                 onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    setMenuOpen(false);
+                    if (location.pathname === "/blog") {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        setMenuOpen(false);
+                    }
+                    else {
+                        setMenuOpen(false);
+                        window.scrollTo({ top: 0, behavior: "auto" });
+                        navigate('/blog')
+                    }
                 }}
                 className="bg-transparent border-none cursor-pointer"
             >
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300 whitespace-nowrap">
-                    PEDRO PAJARILLO JR.
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#f09a36] hover:text-[#E28111] transition-colors duration-300 whitespace-nowrap font-blackletter">
+                    THE PEDRO POST
                 </h1>
             </button>
 
             <div className="hidden 2xl:flex font-bold">
-                {navItems.map(({ label, id, url }) =>
-                    renderNavLink(label, id, isScrolled, undefined, url)
+                {navItems.map(({ label, id, url, newPage }) =>
+                    renderNavLink(label, id, isScrolled, undefined, url, newPage)
                 )}
+
+                <a
+                    href="/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block p-3 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit ${isScrolled ? "text-[#f09a36] hover:text-[#E28111]" : "text-white hover:text-[#E28111]"}`}
+                >
+                    PORTFOLIO
+                </a>
+
             </div>
 
             <button
@@ -128,9 +153,18 @@ function HomePageNavBar() {
                         </span>
                     </button>
 
-                    {navItems.map(({ label, id, url }) =>
-                        renderNavLink(label, id, true, undefined, url)
+                    {navItems.map(({ label, id, url, newPage }) =>
+                        renderNavLink(label, id, true, undefined, url, newPage)
                     )}
+
+                    <a
+                        href="/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={` block p-3 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit ${isScrolled ? "text-[#f09a36] hover:text-[#E28111]" : "text-white hover:text-[#E28111]"}`}
+                    >
+                        PORTFOLIO
+                    </a>
                 </div>
             )}
         </div>

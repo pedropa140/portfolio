@@ -9,14 +9,13 @@ import HomePageProjects from "../HomePageComponents/HomePageProjects/HomePagePro
 import HomePageContact from "../HomePageComponents/HomePageContact/HomePageContact.tsx";
 
 import DarkMode from "../UTILS/DarkMode.tsx";
-import useTitleTag from "../UTILS/useTitleTag.tsx";
+import TitleTag from "../UTILS/TitleTag.tsx";
 
-function HomePage() {
-
-  useTitleTag("Portfolio | ");
+function HomePage({ darkMode, toggleDarkMode }) {
+  TitleTag("Portfolio | ");
 
   return (
-    <div className="relative bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
+    <div className="relative bg-[#f4f4f9] dark:bg-[#111827] min-h-screen text-black dark:text-white transition-colors duration-300">
       <HomePageNavBar />
       <HomePageHeader />
       <HomePageAbout />
@@ -27,7 +26,7 @@ function HomePage() {
       <HomePageProjects />
       <HomePageContact />
 
-      <DarkMode />
+      <DarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
     </div>
   );
 }
