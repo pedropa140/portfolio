@@ -40,7 +40,7 @@ function BlogAboutPage({ darkMode, toggleDarkMode }) {
                         <img
                             src="../components/Blog/BlogAboutPage/AboutTheAuthor_Pedro.jpg"
                             alt="Author"
-                            className="w-[20%] sm:w-[50%] rounded-lg float-left mr-5 mb-3"
+                            className="w-[100%] sm:w-[50%] rounded-lg float-left mr-5 mb-3"
                         />
 
                         <div className="text-[15px] leading-relaxed text-gray-800 dark:text-gray-200">
@@ -53,7 +53,7 @@ function BlogAboutPage({ darkMode, toggleDarkMode }) {
                         <img
                             src="../components/Blog/BlogAboutPage/AboutTheAuthor_Food.jpg"
                             alt="Food"
-                            className="w-[20%] sm:w-[50%] rounded-lg float-right ml-5 mb-3"
+                            className="w-[100%] sm:w-[50%] rounded-lg float-right ml-5 mb-3"
                         />
 
                         <div className="text-[15px] leading-relaxed text-gray-800 dark:text-gray-200">
