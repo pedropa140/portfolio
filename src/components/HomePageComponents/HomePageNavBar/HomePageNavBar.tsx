@@ -19,13 +19,7 @@ function HomePageNavBar() {
         setMenuOpen(false);
     };
 
-    const renderNavLink = (
-        label: string,
-        id?: string,
-        isScrolled?: boolean,
-        onClickExtra = () => { },
-        url?: string
-    ) => {
+    const renderNavLink = ( label: string, id?: string, isScrolled?: boolean, onClickExtra = () => { }, url?: string ) => {
         const baseClass = `
             block p-3 text-2xl lg:text-base text-left font-bold w-full lg:w-auto bg-transparent border-none cursor-pointer font-inherit
             ${isScrolled ? "text-[#f09a36] hover:text-[#E28111]" : "text-white hover:text-[#E28111]"}
@@ -66,11 +60,7 @@ function HomePageNavBar() {
         { label: "EDUCATION", id: "education" },
         { label: "CERTIFICATIONS", id: "certifications" },
         { label: "HACKATHONS", id: "hackathons" },
-        { label: "PROJECTS", id: "projects" },        
-        {
-            label: "BLOG",
-            url: "/blog",
-        },
+        { label: "PROJECTS", id: "projects" },
         {
             label: "RESUME",
             url: "https://drive.google.com/file/d/1cwA9iiWqxWABMaxAzDFZbiTzsI9QLB7p/view?usp=sharing",
@@ -82,7 +72,7 @@ function HomePageNavBar() {
         <div
             className={`fixed z-[100] flex items-center justify-between transition-all ease-in-out
                 ${isScrolled
-                    ? "bg-[#f4f4f9] dark:bg-gray-900 pb-2 pl-5 pr-5 w-[95%] ml-[2.5%] mr-[2.5%]"
+                    ? "bg-[#f4f4f9] dark:bg-[#111827] pb-2 pl-5 pr-5 w-[95%] ml-[2.5%] mr-[2.5%]"
                     : "bg-transparent p-5 w-full"
                 }
             `}
