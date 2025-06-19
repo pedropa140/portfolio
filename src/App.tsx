@@ -5,10 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './components/HomePage/HomePage.tsx';
 
-import BlogHomePage from './components/Blog/BlogHomePage/BlogHomePage.tsx';
-import BlogAboutPage from './components/Blog/BlogPages/BlogAboutPage/BlogAboutPage.tsx';
-import BlogContentCreationPage from './components/Blog/BlogPages/BlogContentCreationPage/BlogContentCreationPage.tsx';
-
 import ErrorPageNotFound from './components/UTILS/ErrorPageNotFound.tsx';
 // import UnderConstruction from './components/UTILS/UnderConstruction.tsx';
 
@@ -33,33 +29,6 @@ function App() {
           path="/"
           element={
             <HomePage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/blog"
-          element={
-            <BlogHomePage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/blog/about"
-          element={
-            <BlogAboutPage
-              darkMode={darkMode}
-              toggleDarkMode={toggleDarkMode}
-            />
-          }
-        />
-        <Route
-          path="/blog/content-creation"
-          element={
-            <BlogContentCreationPage
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
             />

@@ -22,12 +22,6 @@ function ErrorPageNotFound({ darkMode, toggleDarkMode }) {
                     >
                         Visit Porfolio
                     </Link>
-                    <Link
-                        to="/blog"
-                        className="flex-1 text-center text-sm font-medium text-white bg-[#f09a36] hover:bg-[#d8882f] px-6 py-3 rounded-lg transition"
-                    >
-                        Visit Blog
-                    </Link>
                 </div>
             </div>
 

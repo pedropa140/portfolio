@@ -60,11 +60,7 @@ function HomePageNavBar() {
         { label: "EDUCATION", id: "education" },
         { label: "CERTIFICATIONS", id: "certifications" },
         { label: "HACKATHONS", id: "hackathons" },
-        { label: "PROJECTS", id: "projects" },        
-        {
-            label: "BLOG",
-            url: "/blog",
-        },
+        { label: "PROJECTS", id: "projects" },
         {
             label: "RESUME",
             url: "https://drive.google.com/file/d/1cwA9iiWqxWABMaxAzDFZbiTzsI9QLB7p/view?usp=sharing",
