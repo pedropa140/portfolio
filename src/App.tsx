@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './components/HomePage/HomePage.tsx';
+import BlogHomePage from './components/BlogHomePage/BlogHomePage.tsx';
 
 import ErrorPageNotFound from './components/UTILS/ErrorPageNotFound.tsx';
 // import UnderConstruction from './components/UTILS/UnderConstruction.tsx';
@@ -29,6 +30,15 @@ function App() {
           path="/"
           element={
             <HomePage
+              darkMode={darkMode}
+              toggleDarkMode={toggleDarkMode}
+            />
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <BlogHomePage
               darkMode={darkMode}
               toggleDarkMode={toggleDarkMode}
             />
