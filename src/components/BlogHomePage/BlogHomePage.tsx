@@ -17,6 +17,7 @@ function BlogHomePage({ darkMode, toggleDarkMode }) {
 
     return (
         <div className="relative bg-[#f4f4f9] dark:bg-[#111827] min-h-screen text-black dark:text-white transition-colors duration-300">
+            <h1>Blog</h1>
             <p>{message}</p>
             <DarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         </div>
