@@ -1,8 +1,8 @@
 const HomePageAbout = () => {
     return (
-        <div id="about" className="bg-[#f4f4f9] dark:bg-[#111827] h-auto pt-14 pl-14 pr-14 transition-colors duration-300">
+        <div id="about" className="bg-[#f4f4f9] dark:bg-[#111827] h-auto pl-14 pr-14 transition-colors duration-300">
             <div className="w-full m-auto pt-3">
-                <h2 className="w-[75%] m-auto text-xl md:text-3xl lg:text-[35px] text-[#f09a36] text-center font-bold border-b-[3px] border-solid border-b-[#f09a36] pb-2">
+                <h2 className="w-[75%] m-auto text-xl md:text-3xl lg:text-[35px] text-[#f09a36] text-center font-bold border-b-[3px] border-solid border-b-[#f09a36] pb-2 mt-14">
                     ABOUT ME
                 </h2>
                 <div className="h-auto lg:w-[75%] md:w-[100%] sm:w-[100%] bg-transparent m-auto p-5">

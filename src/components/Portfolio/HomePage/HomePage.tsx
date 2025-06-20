@@ -8,8 +8,8 @@ import HomePageHackathons from "../HomePageComponents/HomePageHackathons/HomePag
 import HomePageProjects from "../HomePageComponents/HomePageProjects/HomePageProjects.tsx";
 import HomePageContact from "../HomePageComponents/HomePageContact/HomePageContact.tsx";
 
-import DarkMode from "../UTILS/DarkMode.tsx";
-import TitleTag from "../UTILS/TitleTag.tsx";
+import DarkMode from "../../UTILS/DarkMode.tsx";
+import TitleTag from "../../UTILS/TitleTag.tsx";
 
 function HomePage({ darkMode, toggleDarkMode }) {
   TitleTag("Portfolio | ");
@@ -26,7 +26,10 @@ function HomePage({ darkMode, toggleDarkMode }) {
       <HomePageProjects />
       <HomePageContact />
 
-      <DarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <DarkMode
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
     </div>
   );
 }
