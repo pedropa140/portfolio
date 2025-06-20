@@ -19,9 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently -k -n SERVER,CLIENT -c green,blue \"npm:server\" \"npm:client\"",
-    "server": "nodemon api/index.js",
-    "client": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -50,7 +48,7 @@
     "nodemon": "^3.1.10",
     "react-router-dom": "^7.6.1",
     "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
     "vite-plugin-mix": "^0.4.0"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
