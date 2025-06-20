@@ -70,15 +70,6 @@ const HomePageContact = () => {
                         </button>
                     ))}
 
-                    <a
-                        href="/blog"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[#f09a36] transition"
-                    >
-                        Blog
-                    </a>
-
                     <button
                         onClick={() => scrollToSection("contact")}
                         className="hover:text-[#f09a36] transition"
